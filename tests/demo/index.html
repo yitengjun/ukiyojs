@@ -24,12 +24,13 @@
       <!--picture element-->
       <h2>picture element</h2>
       <picture>
-        <source
-          srcset="
-            https://images.unsplash.com/photo-1661961112835-ca6f5811d2af?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=500&q=80
-          "
-          media="(min-width: 1000px)"
-        />
+        <source srcset="/images/fxb.avif" type="image/avif" />
+        <source srcset="/images/fxb.webp" type="image/webp" />
+        <img class="ukiyo" src="/images/fxb.png" alt="" aria-hidden="true" loading="lazy" />
+      </picture>
+
+      <picture>
+        <source srcset="" media="(min-width: 1000px)" />
         <source
           srcset="
             https://images.unsplash.com/photo-1647849754185-2b52aec8458b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=500&q=80

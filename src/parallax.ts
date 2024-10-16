@@ -40,12 +40,22 @@ export class Parallax {
     this.elementTagName = element.tagName.toLowerCase();
 
     if (this.elementTagName === 'img') {
-      const path: string | null = element.getAttribute('src');
+      const imgElement = element as HTMLImageElement;
 
-      if (!path) return;
-      isImageLoaded(path).then(() => {
-        this.createParallax();
-      });
+      const checkCurrentSrc = () => {
+        if (imgElement.currentSrc) {
+          const path: string | null = imgElement.currentSrc;
+
+          if (!path) return;
+          isImageLoaded(path).then(() => {
+            this.createParallax();
+          });
+        } else {
+          requestAnimationFrame(checkCurrentSrc);
+        }
+      };
+
+      requestAnimationFrame(checkCurrentSrc);
     } else {
       this.createParallax();
     }
